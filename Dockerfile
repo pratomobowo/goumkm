@@ -14,7 +14,8 @@ RUN apk add --no-cache \
     npm \
     supervisor \
     nginx \
-    sqlite
+    sqlite \
+    sqlite-dev
 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
