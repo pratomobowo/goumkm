@@ -14,6 +14,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- ApexCharts -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </head>
     <body class="font-sans antialiased" x-data="{ sidebarOpen: false }">
         <div class="min-h-screen bg-gray-50">
