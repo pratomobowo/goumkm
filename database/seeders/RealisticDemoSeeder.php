@@ -17,6 +17,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 class RealisticDemoSeeder extends Seeder
 {
@@ -28,15 +29,15 @@ class RealisticDemoSeeder extends Seeder
 
     public function run(): void
     {
-        // Reset existing data
-        DB::statement('PRAGMA foreign_keys = OFF');
+        // Reset existing data - works for both MySQL and SQLite
+        Schema::disableForeignKeyConstraints();
         JournalLine::truncate();
         JournalEntry::truncate();
         StockMovement::truncate();
         Product::where('tenant_id', 1)->delete();
         Transaction::where('tenant_id', 1)->delete();
         Budget::where('tenant_id', 1)->delete();
-        DB::statement('PRAGMA foreign_keys = ON');
+        Schema::enableForeignKeyConstraints();
 
         // Update tenant info
         $tenant = Tenant::find(1);
