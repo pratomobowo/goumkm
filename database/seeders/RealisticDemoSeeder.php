@@ -265,7 +265,7 @@ class RealisticDemoSeeder extends Seeder
 
     private function createMonthTransactions(int $month, int $year, array $data): void
     {
-        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        $daysInMonth = \Carbon\Carbon::create($year, $month, 1)->daysInMonth;
 
         // === INCOME TRANSACTIONS ===
         
