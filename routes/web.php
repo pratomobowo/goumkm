@@ -13,8 +13,8 @@ use App\Http\Controllers\Tenant\TaxController;
 use App\Http\Controllers\Tenant\TransactionController;
 use Illuminate\Support\Facades\Route;
 
-// Landing page
-Route::view('/', 'welcome')->name('home');
+// Landing page - redirect to login
+Route::redirect('/', '/login');
 
 // Authenticated routes
 Route::middleware(['auth', 'verified'])->group(function () {
