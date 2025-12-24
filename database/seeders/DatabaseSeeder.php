@@ -45,5 +45,11 @@ class DatabaseSeeder extends Seeder
 
         // Seed categories
         $this->call(CategorySeeder::class);
+        
+        // Seed accounts (Chart of Accounts)
+        $this->call(AccountSeeder::class);
+        
+        // Seed realistic demo data
+        $this->call(RealisticDemoSeeder::class);
     }
 }
