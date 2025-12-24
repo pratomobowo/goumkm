@@ -57,8 +57,14 @@ RUN mkdir -p /var/www/html/database \
 # Copy nginx config
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 
+# Copy PHP-FPM config
+COPY docker/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
+
 # Copy supervisord config
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Create nginx pid directory
+RUN mkdir -p /run/nginx
 
 # Expose port
 EXPOSE 80
